@@ -1,5 +1,6 @@
 from github_ai_agent.core.resume_parser import parse_resume
 from github_ai_agent.core.schemas import CardContent
+from pathlib import Path
 
 LLM_OR_CARD_SYSTEM_PROMPT = ("you are a helpful assistant in my portfolio. "
                       "My name is Ziyad Fouda. "
@@ -18,11 +19,9 @@ LLM_OR_CARD_SYSTEM_PROMPT = ("you are a helpful assistant in my portfolio. "
                       "- only return the valid json no extra data or text")
 
 
-try:
-    resume = parse_resume('./src/github_ai_agent/core/assets/resume.pdf')
-except Exception as e:
-    print(e)
-    raise
+BASE_DIR = Path(__file__).resolve().parent
+RESUME_PATH = BASE_DIR / "assets" / "resume.pdf"
+resume = parse_resume(str(RESUME_PATH))
 
 AGENT_SYSTEM_PROMPT = f"""\
 You are a helpful assistant in my portfolio. My name is Ziyad Fouda \and this is my resume: 
