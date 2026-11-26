@@ -15,7 +15,8 @@ repos = {
     'genlearn':'https://github.com/Gen-Learn/GenLearn-Ai-Code',
     'popchoice':'https://github.com/zFoudaz/popChoice-api',
     'research_agent':'https://github.com/zFoudaz/Research-agent-with-LangGraph',
-    'study_tracker':'https://github.com/zFoudaz/Study-Tracker-App'
+    'study_tracker':'https://github.com/zFoudaz/Study-Tracker-App',
+    "E_Commerce_Whatsapp_Agent":"https://github.com/zFoudaz/E-Commerce-Whatsapp-Agent"
 }
 
 
