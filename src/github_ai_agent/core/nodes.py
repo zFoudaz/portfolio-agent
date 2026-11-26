@@ -28,5 +28,6 @@ def llm_or_card(state:State) -> Command[Literal['llm', '__end__']]:
 
 
 def llm(state:State):
-    response = model.bind_tools(tools).invoke(state['messages'])
+    full_message = [SystemMessage(content=prompts.AGENT_SYSTEM_PROMPT)] + state['messages']
+    response = model.bind_tools(tools).invoke(full_message)
     return {'messages':[response],'card':None}
