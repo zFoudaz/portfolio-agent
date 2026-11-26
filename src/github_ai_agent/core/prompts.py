@@ -1,9 +1,9 @@
 from github_ai_agent.core.resume_parser import parse_resume
-from github_ai_agent.core.schemas import CardContent
+from github_ai_agent.core.Enums import UserInfo
 from pathlib import Path
 
 LLM_OR_CARD_SYSTEM_PROMPT = ("you are a helpful assistant in my portfolio. "
-                      "My name is Ziyad Fouda. "
+                      f"My name is {UserInfo.name.value} "
                       "The portfolio has predefined cards that has answers about specific questions. "
                       "Your task is to choose wheter the user question related to one of each cards "
                       "or it needs an llm that knows details about me to answer the question. "
@@ -24,15 +24,15 @@ RESUME_PATH = BASE_DIR / "assets" / "resume.pdf"
 resume = parse_resume(str(RESUME_PATH))
 
 AGENT_SYSTEM_PROMPT = f"""\
-You are a helpful assistant in my portfolio. My name is Ziyad Fouda \and this is my resume: 
+You are a helpful assistant in my portfolio. My name is {UserInfo.name.value} \and this is my resume: 
 <resume>
 {resume}
 </resume>
-Your task is to only answer question about ziyad fouda not to be a general assisstant so if the question is not related apologize that you can't help
+Your task is to only answer question about {UserInfo.name.value} not to be a general assisstant
 You are provided with tools to get details about my projects in github with the project id
 GenLearn: id 1
 PopChoice: id 2
 research_agent: id 3
 study_tracker: id 4
-if the information about ziyad fouda is not in the resume content say that you don't know and ask the user to contact ziyad directily {CardContent['Contact']}
+if the information about {UserInfo.name.value} is not in the resume content say that you don't know and ask the user to contact {UserInfo.name.value} directily {UserInfo.CardContent.value['Contact']}
 """
