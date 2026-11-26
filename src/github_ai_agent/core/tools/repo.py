@@ -17,6 +17,23 @@ def get_crsr():
         conn.close()
 
 @tool
+def get_all_projects()->str:
+    """ get all the projects name adn id
+        Args:
+             - None
+        Returns: 
+             str: all projects with corresponding id
+    """
+    with get_crsr() as crsr:
+        crsr.execute(
+            """
+            SELECT id, name FROM REPO;
+            """
+        )
+        data = crsr.fetchall()
+        return "\n".join([f"{name}: id {id}" for id,name in data])
+
+@tool
 def get_repo_info(repo_id:int)->str:
     """get all the content about a github repo by the repo id
         Args:
@@ -54,3 +71,6 @@ def get_repo_file(repo_id:int, file_name:str):
             )
             data = crsr.fetchone()
             return data[0]
+
+if __name__ == '__main__':
+    get_all_projects()

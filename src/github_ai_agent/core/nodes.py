@@ -3,7 +3,7 @@ from langgraph.graph import END
 from langchain_core.messages import SystemMessage, AIMessage
 from typing import Literal
 from langgraph.types import Command
-from github_ai_agent.core.tools.repo import get_repo_info, get_repo_file
+from github_ai_agent.core.tools.repo import get_repo_info, get_repo_file, get_all_projects
 from github_ai_agent.core.llm_model import model
 from github_ai_agent.core.state import State
 import github_ai_agent.core.prompts as prompts
@@ -11,7 +11,7 @@ from github_ai_agent.core.schemas import CardDecision
 from github_ai_agent.core.Enums import UserInfo
 
 
-tools = [get_repo_info, get_repo_file]
+tools = [get_repo_info, get_repo_file, get_all_projects]
 
 tool_node = ToolNode(tools)
 
