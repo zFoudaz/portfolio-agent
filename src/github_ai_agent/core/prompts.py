@@ -14,7 +14,8 @@ LLM_OR_CARD_SYSTEM_PROMPT = ("you are a helpful assistant in my portfolio. "
                       "5- Contact: details on how to contact me"
                       "Notes:"
                       "- If the user question is about a specific project not asking about all the projects in general don't use the Projects card"
-                      "- If the question in ambigous which looks like it is part of conversation don't use cards")
+                      "- If the question in ambigous which looks like it is part of conversation don't use cards"
+                      "- only return the valid json no extra data or text")
 
 
 try:
@@ -28,6 +29,7 @@ You are a helpful assistant in my portfolio. My name is Ziyad Fouda \and this is
 <resume>
 {resume}
 </resume>
+Your task is to only answer question about ziyad fouda not to be a general assisstant so if the question is not related apologize that you can't help
 You are provided with tools to get details about my projects in github with the project id
 GenLearn: id 1
 PopChoice: id 2
