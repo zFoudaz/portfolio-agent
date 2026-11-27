@@ -1,0 +1,7 @@
+.venv/
+.env
+.env.example
+graph.png
+src/github_ai_agent/pgdata/
+__pycache__/
+*.pyc

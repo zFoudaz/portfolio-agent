@@ -1,0 +1,46 @@
+{
+  "name": "ziyad-portfolio-agent",
+  "description": "FastAPI AI portfolio agent backend powered by LangGraph and Groq",
+  "stack": "heroku-24",
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  },
+  "env": {
+    "GROQ_API_KEY": {
+      "description": "Groq API key for LLM inference",
+      "required": true
+    },
+    "DB_HOST": {
+      "description": "PostgreSQL database host",
+      "required": true
+    },
+    "DB_PORT": {
+      "description": "PostgreSQL database port",
+      "required": true
+    },
+    "DB_NAME": {
+      "description": "PostgreSQL database name",
+      "required": true
+    },
+    "DB_USERNAME": {
+      "description": "PostgreSQL database username",
+      "required": true
+    },
+    "DB_PASSWORD": {
+      "description": "PostgreSQL database password",
+      "required": true
+    },
+    "ORIGINS": {
+      "description": "JSON list of allowed CORS origins",
+      "required": true
+    }
+  }
+}
