@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     DB_NAME:str
     DB_USERNAME:str
     DB_PASSWORD:str
+    origins:list
     model_config = SettingsConfigDict(env_file=find_dotenv(), extra='ignore')
 
 settings = Settings()
