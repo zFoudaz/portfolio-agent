@@ -48,7 +48,7 @@ def send_message_streamed(thread_id, message):
                 if chunk["type"] == "updates":
                     if node_data := chunk["data"].get('llm_or_card'):
                         if card := node_data.get("card"):
-                            yield f"data: {json.dumps({'type': 'card', 'content': None, 'card':node_data.get('card')})}\n\n"
+                            yield f"data: {json.dumps({'type': 'card', 'content': None, 'card':card})}\n\n"
 
                 if chunk["type"] == "messages":
                     msg, metadata = chunk["data"]
